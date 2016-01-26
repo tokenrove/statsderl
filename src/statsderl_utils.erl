@@ -59,7 +59,7 @@ getaddrs(Hostname) ->
 -spec random(pos_integer()) -> pos_integer().
 
 random(N) ->
-    granderl:rdtsc_mod(N).
+    granderl:rdtsc_mod(N) + 1.
 
 -spec random_element([term()]) -> term().
 
