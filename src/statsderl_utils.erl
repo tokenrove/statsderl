@@ -59,7 +59,7 @@ getaddrs(Hostname) ->
 -spec random(pos_integer()) -> pos_integer().
 
 random(N) ->
-    erlang:phash2({self(), timestamp()}, N) + 1.
+    granderl:rdtsc_mod(N).
 
 -spec random_element([term()]) -> term().
 
