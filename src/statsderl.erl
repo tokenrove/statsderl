@@ -1,6 +1,9 @@
 -module(statsderl).
 -include("statsderl.hrl").
 
+-compile(inline).
+-compile({inline_size, 512}).
+
 %% public
 -export([
     counter/3,
@@ -91,7 +94,7 @@ maybe_cast(OpCode, Key, Value, SampleRate) ->
 
 send(ServerName, Msg) ->
     try
-        whereis(ServerName) ! Msg,
+        ServerName ! Msg,
         ok
     catch
         error:badarg ->
