@@ -59,7 +59,7 @@ getaddrs(Hostname) ->
 -spec random(pos_integer()) -> pos_integer().
 
 random(N) ->
-    granderl:xorshift_tls(N) + 1.
+    granderl:uniform(N).
 
 -spec random_element([term()]) -> term().
 
